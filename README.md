@@ -1,0 +1,2 @@
+# AppLog
+Graylog Logging
