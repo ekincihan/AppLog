@@ -1,0 +1,17 @@
+C:\Users\ekin.duman\Documents\Github\AppLog\AppLog.Core\bin\Debug\netcoreapp3.1\AppLog.Core.deps.json
+C:\Users\ekin.duman\Documents\Github\AppLog\AppLog.Core\bin\Debug\netcoreapp3.1\AppLog.Core.dll
+C:\Users\ekin.duman\Documents\Github\AppLog\AppLog.Core\bin\Debug\netcoreapp3.1\AppLog.Core.pdb
+C:\Users\ekin.duman\Documents\Github\AppLog\AppLog.Core\obj\Debug\netcoreapp3.1\AppLog.Core.csprojAssemblyReference.cache
+C:\Users\ekin.duman\Documents\Github\AppLog\AppLog.Core\obj\Debug\netcoreapp3.1\AppLog.Core.csproj.CoreCompileInputs.cache
+C:\Users\ekin.duman\Documents\Github\AppLog\AppLog.Core\obj\Debug\netcoreapp3.1\AppLog.Core.AssemblyInfoInputs.cache
+C:\Users\ekin.duman\Documents\Github\AppLog\AppLog.Core\obj\Debug\netcoreapp3.1\AppLog.Core.AssemblyInfo.cs
+C:\Users\ekin.duman\Documents\Github\AppLog\AppLog.Core\obj\Debug\netcoreapp3.1\AppLog.Core.dll
+C:\Users\ekin.duman\Documents\Github\AppLog\AppLog.Core\obj\Debug\netcoreapp3.1\AppLog.Core.pdb
+C:\Users\ekin.duman\Documents\Github\AppLog\src\AppLog.Core\bin\Debug\netcoreapp3.1\AppLog.Core.deps.json
+C:\Users\ekin.duman\Documents\Github\AppLog\src\AppLog.Core\bin\Debug\netcoreapp3.1\AppLog.Core.dll
+C:\Users\ekin.duman\Documents\Github\AppLog\src\AppLog.Core\bin\Debug\netcoreapp3.1\AppLog.Core.pdb
+C:\Users\ekin.duman\Documents\Github\AppLog\src\AppLog.Core\obj\Debug\netcoreapp3.1\AppLog.Core.AssemblyInfoInputs.cache
+C:\Users\ekin.duman\Documents\Github\AppLog\src\AppLog.Core\obj\Debug\netcoreapp3.1\AppLog.Core.AssemblyInfo.cs
+C:\Users\ekin.duman\Documents\Github\AppLog\src\AppLog.Core\obj\Debug\netcoreapp3.1\AppLog.Core.dll
+C:\Users\ekin.duman\Documents\Github\AppLog\src\AppLog.Core\obj\Debug\netcoreapp3.1\AppLog.Core.pdb
+C:\Users\ekin.duman\Documents\Github\AppLog\src\AppLog.Core\obj\Debug\netcoreapp3.1\AppLog.Core.csprojAssemblyReference.cache

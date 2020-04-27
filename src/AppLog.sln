@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppLog.Logging.GrayLog", "s
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppLog.Core", "src\AppLog.Core\AppLog.Core.csproj", "{0C5E3192-6EE5-4610-883D-305F75CA6690}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLog.Sample", "AppLog.Sample\AppLog.Sample.csproj", "{7165E35C-51A2-4B3E-BD81-3C9F3AE578F4}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{0C5E3192-6EE5-4610-883D-305F75CA6690}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C5E3192-6EE5-4610-883D-305F75CA6690}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C5E3192-6EE5-4610-883D-305F75CA6690}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7165E35C-51A2-4B3E-BD81-3C9F3AE578F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7165E35C-51A2-4B3E-BD81-3C9F3AE578F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7165E35C-51A2-4B3E-BD81-3C9F3AE578F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7165E35C-51A2-4B3E-BD81-3C9F3AE578F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
