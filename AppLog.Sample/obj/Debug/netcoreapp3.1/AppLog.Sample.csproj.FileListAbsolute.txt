@@ -20,7 +20,6 @@ C:\Users\ekin.duman\Documents\Github\AppLog\AppLog.Sample\bin\Debug\netcoreapp3.
 C:\Users\ekin.duman\Documents\Github\AppLog\AppLog.Sample\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
 C:\Users\ekin.duman\Documents\Github\AppLog\AppLog.Sample\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Physical.dll
 C:\Users\ekin.duman\Documents\Github\AppLog\AppLog.Sample\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileSystemGlobbing.dll
-C:\Users\ekin.duman\Documents\Github\AppLog\AppLog.Sample\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\ekin.duman\Documents\Github\AppLog\AppLog.Sample\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 C:\Users\ekin.duman\Documents\Github\AppLog\AppLog.Sample\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\ekin.duman\Documents\Github\AppLog\AppLog.Sample\bin\Debug\netcoreapp3.1\AppLog.Core.dll

@@ -225,17 +225,13 @@ namespace AppLog.Logging.GrayLog
 
         private void PostLog(LogEntry logEntry)
         {
-            using (var grayLogUdpClient = new GrayLogUdpClient(_loggerConfiguration.ApplicationId, _loggerConfiguration.GrayLogHost, _loggerConfiguration.GrayLogPort))
-            {
-                grayLogUdpClient.Send(logEntry.ShortMessage.ConvertTurkishCharToEnglishChar(), logEntry.Message.ConvertTurkishCharToEnglishChar(), logEntry);
-            }
+            using GrayLogUdpClient grayLogUdpClient = new GrayLogUdpClient(_loggerConfiguration.ApplicationId, _loggerConfiguration.GrayLogHost, _loggerConfiguration.GrayLogPort);
+            grayLogUdpClient.Send(logEntry.ShortMessage.ConvertTurkishCharToEnglishChar(), logEntry.Message.ConvertTurkishCharToEnglishChar(), logEntry);
         }
         private async Task PostLogAsync(LogEntry logEntry)
         {
-            using (var grayLogUdpClient = new GrayLogUdpClient(_loggerConfiguration.ApplicationId, _loggerConfiguration.GrayLogHost, _loggerConfiguration.GrayLogPort))
-            {
-                await grayLogUdpClient.SendAsync(logEntry.ShortMessage.ConvertTurkishCharToEnglishChar(), logEntry.Message.ConvertTurkishCharToEnglishChar(), logEntry);
-            }
+            using GrayLogUdpClient grayLogUdpClient = new GrayLogUdpClient(_loggerConfiguration.ApplicationId, _loggerConfiguration.GrayLogHost, _loggerConfiguration.GrayLogPort);
+            await grayLogUdpClient.SendAsync(logEntry.ShortMessage.ConvertTurkishCharToEnglishChar(), logEntry.Message.ConvertTurkishCharToEnglishChar(), logEntry);
         }
 
         

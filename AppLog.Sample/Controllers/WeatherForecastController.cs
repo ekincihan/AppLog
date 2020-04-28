@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace AppLog.Sample.Controllers
 {
@@ -23,9 +23,11 @@ namespace AppLog.Sample.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<IEnumerable<WeatherForecast>> Get()
         {
             _logger.Current().Warning("test", 1);
+            await _logger.Current().InfoAsync("test", 2);
+            _logger.Current().Info("test", 3);
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {

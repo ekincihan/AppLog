@@ -19,19 +19,20 @@ namespace AppLog.Core.Model.Helper
         }
         public static T GetAppConfigValue<T>(string key)
         {
-            return GetAppConfigValue<T>(key, default(T), false);
+            return GetAppConfigValue<T>(key, default, false);
         }
 
         public static T GetAppConfigValue<T>(string key, bool throwErrorOnMissingKey)
         {
-            return GetAppConfigValue<T>(key, default(T), throwErrorOnMissingKey);
+            return GetAppConfigValue<T>(key, default, throwErrorOnMissingKey);
         }
 
         public static T GetAppConfigValue<T>(string key, T defaultValue, bool throwErrorOnMissingKey)
         {
             if (string.IsNullOrEmpty(key))
             {
-                throw new Exception("A key can not be null or empty !");
+                Exception exception = new Exception("A key can not be null or empty !");
+                throw exception;
             }
 
             string configValue = AppConfiguration.Instance.Configuration.GetSection(key).Value;
@@ -64,7 +65,7 @@ namespace AppLog.Core.Model.Helper
                     else
                     {
                         if (value == null || value == DBNull.Value)
-                            return default(T);
+                            return default;
                         return GetConvertedCultureValue<T>(value, culture);
                     }
                 }
@@ -88,7 +89,8 @@ namespace AppLog.Core.Model.Helper
             }
             catch (Exception e)
             {
-                throw new Exception(string.Format("Can not convert {0} to enum type {1}, Err: {2}", value, typeof(T).ToString(), e.Message));
+                Exception exception = new Exception(string.Format("Can not convert {0} to enum type {1}, Err: {2}", value, typeof(T).ToString(), e.Message));
+                throw exception;
             }
         }
         private static T GetConvertedCultureValue<T>(object value, CultureInfo culture)
@@ -98,7 +100,7 @@ namespace AppLog.Core.Model.Helper
             if (destinationType.IsGenericType && destinationType.GetGenericTypeDefinition().Equals(typeof(Nullable<>)))
             {
                 if (value == null)
-                    return default(T);
+                    return default;
 
                 var nullableConverter = new NullableConverter(destinationType);
                 destinationType = nullableConverter.UnderlyingType;

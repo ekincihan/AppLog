@@ -31,29 +31,19 @@ namespace AppLog.Logging.GrayLog
         public int CompressionTreshold { get; set; }
         public void Send(string shortMessage, string fullMessage = null, object data = null)
         {
-            // Construct log record:
-            var logRecord = new Dictionary<string, object>();
-            {
-                logRecord["version"] = ((LogEntry)data).Version ?? "1.0";
-                logRecord["host"] = ((LogEntry)data).Environment.MachineName;
-                logRecord["_facility"] = ((LogEntry)data).ApplicationId;
-                logRecord["short_message"] = shortMessage;
-                if (!String.IsNullOrWhiteSpace(fullMessage)) logRecord["full_message"] = fullMessage;
-                logRecord["timestamp"] = EpochOf(DateTime.UtcNow);
-                if (data is string) logRecord["_data"] = data;
-                else if (data is System.Collections.IEnumerable) logRecord["_values"] = data;
-                // Serialize object:
-                string logRecordString = JsonConvert.SerializeObject(logRecord);
-                var logRecordBytes = Encoding.UTF8.GetBytes(logRecordString);
-
-                // Dispatch message:
-                InternallySendMessage(logRecordBytes);
-            }
+            InternallySendMessage(LogRecordBytes(shortMessage, fullMessage, data));
         }
         public async Task SendAsync(string shortMessage, string fullMessage = null, object data = null)
         {
-            // Construct log record:
+            // Dispatch message:
+            await this.InternallySendMessageAsync(LogRecordBytes(shortMessage, fullMessage, data));
+        }
+        private byte[] LogRecordBytes(string shortMessage, string fullMessage = null, object data = null)
+        {
             var logRecord = new Dictionary<string, object>();
+
+            byte[] logRecordBytes = null;
+            lock (logRecord)
             {
                 logRecord["version"] = ((LogEntry)data).Version ?? "1.0";
                 logRecord["host"] = ((LogEntry)data).Environment.MachineName;
@@ -67,11 +57,9 @@ namespace AppLog.Logging.GrayLog
 
                 // Serialize object:
                 string logRecordString = JsonConvert.SerializeObject(logRecord);
-                var logRecordBytes = Encoding.UTF8.GetBytes(logRecordString);
-
-                // Dispatch message:
-                await this.InternallySendMessageAsync(logRecordBytes);
+                logRecordBytes = Encoding.UTF8.GetBytes(logRecordString);
             }
+            return logRecordBytes;
         }
         protected void InternallySendMessage(byte[] messageBody)
         {
@@ -80,27 +68,25 @@ namespace AppLog.Logging.GrayLog
             if (this.CompressionTreshold != -1 && messageBody.Length > this.CompressionTreshold)
                 messageBody = this.Compress(messageBody, CompressionLevel.Optimal);
 
-            using (var objectStream = new MemoryStream(messageBody))
+            using MemoryStream objectStream = new MemoryStream(messageBody);
+            var chunkCount = PartsNeeded(messageBody.Length, MaxPacketSize - 12);
+            if (chunkCount > 128)
             {
-                var chunkCount = PartsNeeded(messageBody.Length, MaxPacketSize - 12);
-                if (chunkCount > 128)
-                {
-                    throw new GrayLoggingException("Maximum number of GrayLog GELF UDP chuncks exceeded.");
-                }
+                throw new GrayLoggingException("Maximum number of GrayLog GELF UDP chuncks exceeded.");
+            }
 
-                for (byte chunkNumber = 0; chunkNumber < chunkCount; chunkNumber++)
-                {
-                    var chunkBuffer = new byte[MaxPacketSize];
-                    chunkBuffer[0x00] = (byte)0x1e;
-                    chunkBuffer[0x01] = (byte)0x0f;
-                    BitConverter.GetBytes(NextChunckedMessageId).CopyTo(chunkBuffer, 0x02);
-                    chunkBuffer[0x0a] = chunkNumber;
-                    chunkBuffer[0x0b] = (byte)chunkCount;
+            for (byte chunkNumber = 0; chunkNumber < chunkCount; chunkNumber++)
+            {
+                var chunkBuffer = new byte[MaxPacketSize];
+                chunkBuffer[0x00] = (byte)0x1e;
+                chunkBuffer[0x01] = (byte)0x0f;
+                BitConverter.GetBytes(NextChunckedMessageId).CopyTo(chunkBuffer, 0x02);
+                chunkBuffer[0x0a] = chunkNumber;
+                chunkBuffer[0x0b] = (byte)chunkCount;
 
-                    var chunkSize = 12 + objectStream.Read(chunkBuffer, 12, MaxPacketSize - 12);
+                var chunkSize = 12 + objectStream.Read(chunkBuffer, 12, MaxPacketSize - 12);
 
-                    this.UdpClient.Send(chunkBuffer, chunkSize);
-                }
+                this.UdpClient.Send(chunkBuffer, chunkSize);
             }
         }
 
@@ -116,27 +102,25 @@ namespace AppLog.Logging.GrayLog
             if (this.CompressionTreshold != -1 && messageBody.Length > this.CompressionTreshold)
                 messageBody = this.Compress(messageBody, CompressionLevel.Optimal);
 
-            using (var objectStream = new MemoryStream(messageBody))
+            using MemoryStream objectStream = new MemoryStream(messageBody);
+            var chunkCount = PartsNeeded(messageBody.Length, MaxPacketSize - 12);
+            if (chunkCount > 128)
             {
-                var chunkCount = PartsNeeded(messageBody.Length, MaxPacketSize - 12);
-                if (chunkCount > 128)
-                {
-                    throw new GrayLoggingException("Maximum number of GrayLog GELF UDP chuncks exceeded.");
-                }
+                throw new GrayLoggingException("Maximum number of GrayLog GELF UDP chuncks exceeded.");
+            }
 
-                for (byte chunkNumber = 0; chunkNumber < chunkCount; chunkNumber++)
-                {
-                    var chunkBuffer = new byte[MaxPacketSize];
-                    chunkBuffer[0x00] = (byte)0x1e;
-                    chunkBuffer[0x01] = (byte)0x0f;
-                    BitConverter.GetBytes(NextChunckedMessageId).CopyTo(chunkBuffer, 0x02);
-                    chunkBuffer[0x0a] = chunkNumber;
-                    chunkBuffer[0x0b] = (byte)chunkCount;
+            for (byte chunkNumber = 0; chunkNumber < chunkCount; chunkNumber++)
+            {
+                var chunkBuffer = new byte[MaxPacketSize];
+                chunkBuffer[0x00] = (byte)0x1e;
+                chunkBuffer[0x01] = (byte)0x0f;
+                BitConverter.GetBytes(NextChunckedMessageId).CopyTo(chunkBuffer, 0x02);
+                chunkBuffer[0x0a] = chunkNumber;
+                chunkBuffer[0x0b] = (byte)chunkCount;
 
-                    var chunkSize = 12 + objectStream.Read(chunkBuffer, 12, MaxPacketSize - 12);
+                var chunkSize = 12 + objectStream.Read(chunkBuffer, 12, MaxPacketSize - 12);
 
-                    await this.UdpClient.SendAsync(chunkBuffer, chunkSize);
-                }
+                await this.UdpClient.SendAsync(chunkBuffer, chunkSize);
             }
         }
         protected virtual void Dispose(bool disposing)
@@ -158,22 +142,12 @@ namespace AppLog.Logging.GrayLog
         }
         protected byte[] Compress(byte[] raw, CompressionLevel compressionLevel)
         {
-            using (MemoryStream memory = new MemoryStream())
+            using MemoryStream memory = new MemoryStream();
+            using (GZipStream gzip = new GZipStream(memory, compressionLevel, true))
             {
-                using (GZipStream gzip = new GZipStream(memory, compressionLevel, true))
-                {
-                    gzip.Write(raw, 0, raw.Length);
-                }
-                return memory.ToArray();
+                gzip.Write(raw, 0, raw.Length);
             }
-        }
-
-        private void MergeDictionary(Dictionary<string, object> target, System.Collections.IDictionary source, string prefix)
-        {
-            foreach (var key in source.Keys)
-            {
-                target[prefix + key] = source[key];
-            }
+            return memory.ToArray();
         }
 
         private static void MergeObject(IDictionary<string, object> target, dynamic source, string prefix = "")
