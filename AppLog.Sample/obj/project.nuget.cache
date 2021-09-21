@@ -1,20 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "TjgWmScmm1WooNq3udOS3X4z6B2FU8fhrgzwM9J3E4RNOeM+vvvMLLfX7cVPHmWGUXr3cKel4dpS+1cBzz1pAg==",
+  "dgSpecHash": "7eXUGagfJIwLtlbp+6l86C1Mkxi73Lioao+EUJW02JW/5TvTk7Mj7dR9R6VQyRoXpyAhiJLdKEQtWB++1sAU8Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ekin.duman\\Documents\\Github\\AppLog\\AppLog.Sample\\AppLog.Sample.csproj",
+  "projectFilePath": "C:\\Users\\EKIN.DUMAN\\Documents\\GitHub\\AppLog\\AppLog.Sample\\AppLog.Sample.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ekin.duman\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.3\\microsoft.extensions.configuration.3.1.3.nupkg.sha512",
-    "C:\\Users\\ekin.duman\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.1.3\\microsoft.extensions.configuration.abstractions.3.1.3.nupkg.sha512",
-    "C:\\Users\\ekin.duman\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\3.1.3\\microsoft.extensions.configuration.fileextensions.3.1.3.nupkg.sha512",
-    "C:\\Users\\ekin.duman\\.nuget\\packages\\microsoft.extensions.configuration.json\\3.1.3\\microsoft.extensions.configuration.json.3.1.3.nupkg.sha512",
-    "C:\\Users\\ekin.duman\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\3.1.3\\microsoft.extensions.fileproviders.abstractions.3.1.3.nupkg.sha512",
-    "C:\\Users\\ekin.duman\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\3.1.3\\microsoft.extensions.fileproviders.physical.3.1.3.nupkg.sha512",
-    "C:\\Users\\ekin.duman\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\3.1.3\\microsoft.extensions.filesystemglobbing.3.1.3.nupkg.sha512",
-    "C:\\Users\\ekin.duman\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.3\\microsoft.extensions.primitives.3.1.3.nupkg.sha512",
-    "C:\\Users\\ekin.duman\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
-    "C:\\Users\\ekin.duman\\.nuget\\packages\\applog.core\\1.0.0\\applog.core.1.0.0.nupkg.sha512",
-    "C:\\Users\\ekin.duman\\.nuget\\packages\\applog.logging.graylog\\1.0.0\\applog.logging.graylog.1.0.0.nupkg.sha512"
+    "C:\\Users\\EKIN.DUMAN\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.3\\microsoft.extensions.configuration.3.1.3.nupkg.sha512",
+    "C:\\Users\\EKIN.DUMAN\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.1.3\\microsoft.extensions.configuration.abstractions.3.1.3.nupkg.sha512",
+    "C:\\Users\\EKIN.DUMAN\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\3.1.3\\microsoft.extensions.configuration.fileextensions.3.1.3.nupkg.sha512",
+    "C:\\Users\\EKIN.DUMAN\\.nuget\\packages\\microsoft.extensions.configuration.json\\3.1.3\\microsoft.extensions.configuration.json.3.1.3.nupkg.sha512",
+    "C:\\Users\\EKIN.DUMAN\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\3.1.3\\microsoft.extensions.fileproviders.abstractions.3.1.3.nupkg.sha512",
+    "C:\\Users\\EKIN.DUMAN\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\3.1.3\\microsoft.extensions.fileproviders.physical.3.1.3.nupkg.sha512",
+    "C:\\Users\\EKIN.DUMAN\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\3.1.3\\microsoft.extensions.filesystemglobbing.3.1.3.nupkg.sha512",
+    "C:\\Users\\EKIN.DUMAN\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.3\\microsoft.extensions.primitives.3.1.3.nupkg.sha512",
+    "C:\\Users\\EKIN.DUMAN\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
   ],
   "logs": []
 }

@@ -27,7 +27,7 @@ namespace AppLog.Sample.Controllers
         {
             _logger.Current().Warning("test", 1);
             await _logger.Current().InfoAsync("test", 2);
-            _logger.Current().Info("test", 3);
+            _logger.Current().Info("test", 4);
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {

@@ -310,23 +310,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ekin.duman\\.nuget\\packages\\": {},
+    "C:\\Users\\EKIN.DUMAN\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ekin.duman\\Documents\\Github\\AppLog\\AppLog.Sample\\AppLog.Sample.csproj",
+      "projectUniqueName": "C:\\Users\\EKIN.DUMAN\\Documents\\GitHub\\AppLog\\AppLog.Sample\\AppLog.Sample.csproj",
       "projectName": "AppLog.Sample",
-      "projectPath": "C:\\Users\\ekin.duman\\Documents\\Github\\AppLog\\AppLog.Sample\\AppLog.Sample.csproj",
-      "packagesPath": "C:\\Users\\ekin.duman\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ekin.duman\\Documents\\Github\\AppLog\\AppLog.Sample\\obj\\",
+      "projectPath": "C:\\Users\\EKIN.DUMAN\\Documents\\GitHub\\AppLog\\AppLog.Sample\\AppLog.Sample.csproj",
+      "packagesPath": "C:\\Users\\EKIN.DUMAN\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\EKIN.DUMAN\\Documents\\GitHub\\AppLog\\AppLog.Sample\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\ekin.duman\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\EKIN.DUMAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -334,14 +337,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://10.200.201.61:8081/nuget": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "\\\\128.128.13.3\\LocalNugetRepository": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://azuredevops.lcwaikiki.com/CounterStrike/_packaging/cs_nuget/nuget/v3/index.json": {},
+        "https://azuredevops.lcwaikiki.com/CounterStrike/_packaging/pars_core_nuget/nuget/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\ekin.duman\\Documents\\Github\\AppLog\\src\\AppLog.Logging.GrayLog\\AppLog.Logging.GrayLog.csproj": {
-              "projectPath": "C:\\Users\\ekin.duman\\Documents\\Github\\AppLog\\src\\AppLog.Logging.GrayLog\\AppLog.Logging.GrayLog.csproj"
+            "C:\\Users\\EKIN.DUMAN\\Documents\\GitHub\\AppLog\\src\\AppLog.Logging.GrayLog\\AppLog.Logging.GrayLog.csproj": {
+              "projectPath": "C:\\Users\\EKIN.DUMAN\\Documents\\GitHub\\AppLog\\src\\AppLog.Logging.GrayLog\\AppLog.Logging.GrayLog.csproj"
             }
           }
         }
@@ -354,6 +360,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "imports": [
           "net461",
           "net462",
@@ -372,7 +379,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
